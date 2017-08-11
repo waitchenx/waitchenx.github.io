@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>测试案例 | Hexo</title>
+  <title>tp5.0自定义验证 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="测试案例">
-<meta property="og:url" content="https://waitchenx.github.io/2017/08/10/测试案例/index.html">
+  <meta name="description" content="tp5.0验证器">
+<meta name="keywords" content="test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tp5.0自定义验证">
+<meta property="og:url" content="https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:updated_time" content="2017-08-10T07:32:33.869Z">
+<meta property="og:description" content="tp5.0验证器">
+<meta property="og:updated_time" content="2017-08-11T02:09:58.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="测试案例">
+<meta name="twitter:title" content="tp5.0自定义验证">
+<meta name="twitter:description" content="tp5.0验证器">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -201,11 +205,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-测试案例" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-tp5-0自定义验证" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/10/测试案例/" class="article-date">
-      <time datetime="2017-08-10T07:32:33.000Z" itemprop="datePublished">2017-08-10</time>
+      <a href="/2017/08/10/tp5-0自定义验证/" class="article-date">
+      <time datetime="2017-08-10T11:01:36.000Z" itemprop="datePublished">2017-08-10</time>
 </a>
     </div>
   
@@ -218,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      测试案例
+      tp5.0自定义验证
     </h1>
   
 
@@ -226,8 +230,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tp5-0-小程序/">tp5.0+小程序</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -235,7 +247,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h2 id="验证器"><a href="#验证器" class="headerlink" title="验证器"></a>验证器</h2><ol>
+<li><p>独立验证</p>
+<p>​    使用validate 类进行验证.使用tp5内置的验证规则</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用实例</span></div><div class="line">$data = [</div><div class="line">  <span class="string">'name'</span>=&gt;<span class="string">'chenx'</span>,</div><div class="line">  <span class="string">'email'</span>=&gt;<span class="string">'chenx@qq.com'</span></div><div class="line">];</div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</div><div class="line">$validate = <span class="keyword">new</span> validate([</div><div class="line">  <span class="string">'name'</span>=&gt;<span class="string">'require|min:4'</span>,</div><div class="line">  <span class="string">'email'</span>=&gt;<span class="string">'email'</span>,</div><div class="line">]);</div><div class="line">$result = $validate-&gt;batch()-&gt;check($data);</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>验证器验证</p>
+<p>​    验证器是为具体的验证场景或者特定的数据进行验证.</p>
+<p>​    使用实例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.在模块下自定义一个validate文件夹 用来存放验证器</span></div><div class="line"><span class="comment">//2.在验证器中继承基础验证器 validate</span></div><div class="line"><span class="comment">//3.书写验证规则</span></div><div class="line"><span class="comment">//4.在需要验证的地方创建 对应的验证器实例对象 使用check()方法验证</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">validate</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Validate</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">protected</span> $rule = [</div><div class="line">        <span class="string">'name'</span>  =&gt;  <span class="string">'require|max:25'</span>,</div><div class="line">        <span class="string">'email'</span> =&gt;  <span class="string">'email'</span>,</div><div class="line">    ];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line">$validate = <span class="keyword">new</span> user;</div><div class="line">$result = $validate-&gt;check($date);</div></pre></td></tr></table></figure>
+<ol>
+<li><p>自定义自己的验证器</p>
+<ol>
+<li><p>同上所述创建对应的验证规则</p>
+</li>
+<li><p>为了方便调用不需要在到对应地方去接收数据,我在在验证器上层在加一个basevalidate</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//basevalidate</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">validate</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">request</span>;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Validate</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//定义验证方法</span></div><div class="line">    <span class="comment">//需要做到接收数据 并验证</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">gocheck</span><span class="params">()</span></span>&#123;</div><div class="line">      $request = request::instance();</div><div class="line">      $perms = $reqest-&gt;param();</div><div class="line">      $result = <span class="keyword">$this</span>-&gt;check($perms);</div><div class="line">      <span class="keyword">if</span>(!result)&#123;</div><div class="line">      	$error = <span class="keyword">$this</span>-&gt;getError();</div><div class="line">      	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>($error); <span class="comment">//这里需要注意  许在配置文件中将'app_trace'设置为false,</span></div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">//使用的地方创建对应的验证器实例然后调用gocheck();</span></div><div class="line"> (<span class="keyword">new</span> user)-&gt;gocheck();</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>​</p>
+</li>
+</ol>
+
       
       
         <div class="page-reward">
@@ -289,13 +326,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/10/测试案例/">测试案例</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
-        <p><span>发布时间:</span>2017年08月10日 - 15时32分</p>
-        <p><span>最后更新:</span>2017年08月10日 - 15时32分</p>
+        <p><span>发布时间:</span>2017年08月10日 - 19时01分</p>
+        <p><span>最后更新:</span>2017年08月11日 - 10时09分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/10/测试案例/" title="测试案例">https://waitchenx.github.io/2017/08/10/测试案例/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/10/测试案例/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/10/tp5-0自定义验证/" title="tp5.0自定义验证">https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -321,7 +358,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#验证器"><span class="toc-number">1.</span> <span class="toc-text">验证器</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -369,7 +406,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/08/10/测试案例/" data-title="测试案例" data-url="https://waitchenx.github.io/2017/08/10/测试案例/"></div>
+    <div class="ds-thread" data-thread-key="2017/08/10/tp5-0自定义验证/" data-title="tp5.0自定义验证" data-url="https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -401,7 +438,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/测试案例/">测试案例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/lenmarkdown/">markdown如何使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/test/">test</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/lenmarkdown/">markdown如何使用</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
