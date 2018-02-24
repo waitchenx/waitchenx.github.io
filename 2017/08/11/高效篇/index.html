@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>多进程 | Hexo</title>
+  <title>yii2高效篇 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="多进程">
-<meta name="keywords" content="socket">
+  <meta name="description" content="yii2高效篇">
+<meta name="keywords" content="yii2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多进程">
-<meta property="og:url" content="https://waitchenx.github.io/2017/08/11/多进程/index.html">
+<meta property="og:title" content="yii2高效篇">
+<meta property="og:url" content="https://waitchenx.github.io/2017/08/11/高效篇/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="多进程">
+<meta property="og:description" content="yii2高效篇">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-14T05:07:31.220Z">
+<meta property="og:updated_time" content="2018-02-24T02:50:15.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多进程">
-<meta name="twitter:description" content="多进程">
+<meta name="twitter:title" content="yii2高效篇">
+<meta name="twitter:description" content="yii2高效篇">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -206,10 +206,10 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-多进程" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-高效篇" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/11/多进程/" class="article-date">
+      <a href="/2017/08/11/高效篇/" class="article-date">
       <time datetime="2017-08-11T03:50:14.000Z" itemprop="datePublished">2017-08-11</time>
 </a>
     </div>
@@ -223,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      多进程
+      yii2高效篇
     </h1>
   
 
@@ -232,13 +232,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/socket/">socket</a>
+    <a class="article-category-link" href="/categories/yii2/">yii2</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket/">socket</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yii2/">yii2</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -248,15 +248,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><p>需要安装pcntl扩展 </p>
-<p>查看文档</p>
-<p>pcntl_fock() 创建子进程 得到 pid</p>
-<p>处理逻辑都在子进程处理。主进程一旦关闭，所有的子进程也会被关闭。</p>
-<p>查看运行情况</p>
-<p>ps -ef | grep server.php | grep -v grep</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$socket = socket_create(AF_INET,SOCK_STREAM,SOL_TCP);</span><br><span class="line"></span><br><span class="line">socket_bind($socket,<span class="string">'127.0.0.1'</span>,<span class="number">3001</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"error"</span>);</span><br><span class="line"></span><br><span class="line">socket_listen($socket,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line"></span><br><span class="line">    $client = socket_accept($socket);</span><br><span class="line"></span><br><span class="line">    $pid = pcntl_fork();</span><br><span class="line"><span class="comment">//父进程和子进程都会执行下面代码</span></span><br><span class="line">    <span class="keyword">if</span> ($pid == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">//错误处理：创建子进程失败时返回-1.</span></span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'could not fork'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($pid) &#123;</span><br><span class="line">        <span class="comment">//关闭主进程</span></span><br><span class="line">        socket_close($client);</span><br><span class="line">        <span class="comment">//父进程会得到子进程号，所以这里是父进程执行的逻辑</span></span><br><span class="line"><span class="comment">//        pcntl_wait($status); //等待子进程中断，防止子进程成为僵尸进程。</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//子进程得到的$pid为0, 所以这里是子进程执行的逻辑。</span></span><br><span class="line">        $buf = socket_read($client,<span class="number">1024</span>);</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">'/sleep/i'</span>,$buf,$matches))&#123;</span><br><span class="line">            sleep(<span class="number">10</span>);</span><br><span class="line">            socket_write($client,<span class="string">'睡眠10秒钟'</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            socket_write($client,<span class="string">'hello socket'</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> $buf;</span><br><span class="line">        socket_close($client);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">socket_close</span><br></pre></td></tr></table></figure>
-<p>在以上程序中子进程会无限增多。关闭方式 结束使用 exit； 关闭进程</p>
-<p>pcntl_wait();等待执行 防止出现僵尸进程</p>
+        <h3 id="1-自动加载"><a href="#1-自动加载" class="headerlink" title="1. 自动加载"></a>1. 自动加载</h3><p>spl_autoload_rgister(‘my_loader’);  </p>
+<p>实例化类时,没有找到对应的类文件则使用自动加载机智调用对应的方法my_loader(),传递类名 my_loader()方法里面具体操作是加载引入相关的类文件.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// require_once('\class1\Class1.php');</span></span><br><span class="line"><span class="comment">// require_once('\class2\Class2.php');</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loader</span><span class="params">($class)</span></span>&#123;</span><br><span class="line">	<span class="keyword">require_once</span>(<span class="string">'\class1\\'</span>.$class.<span class="string">'.php'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">spl_autoload_register(<span class="string">'loader'</span>);</span><br><span class="line"></span><br><span class="line">$flag = ($_GET[<span class="string">'flag'</span>] == <span class="number">0</span>) ?<span class="keyword">true</span> : <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>($flag)&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"true"</span>;</span><br><span class="line">	<span class="comment">// require_once('\class1\Class1.php');</span></span><br><span class="line">	$class1 = <span class="keyword">new</span> Class1();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"false"</span>;</span><br><span class="line">	<span class="comment">// require_once('\class2\Class2.php');</span></span><br><span class="line">	$class2 = <span class="keyword">new</span> Class2();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-类的映射表机制"><a href="#2-类的映射表机制" class="headerlink" title="2. 类的映射表机制"></a>2. 类的映射表机制</h3><p>原理就是 将类名文件目录转化为磁盘上的真实路径,使用YII\$classMap[];</p>
+<p>\YII::$classMap[‘类名’] = ‘绝对路径’;  类名映射</p>
+<h3 id="3-组件的延迟加载"><a href="#3-组件的延迟加载" class="headerlink" title="3. 组件的延迟加载"></a>3. 组件的延迟加载</h3><p>入口 app(应用主体)  1.  componens  (应用组件) 2. controller(控制器)</p>
+<p>在控制器中加载应用组件 需要的时候在加载  加载的时候回调用__get() </p>
+<h3 id="4-缓存"><a href="#4-缓存" class="headerlink" title="4. 缓存"></a>4. 缓存</h3><ol>
+<li><p>数据缓存 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.使用</span></span><br><span class="line">$cache = \YII::app-&gt;cache;</span><br><span class="line">add(<span class="string">'key'</span>,<span class="string">'value'</span>,<span class="string">'有效期'</span>);  <span class="comment">//增 存储时如果key对应有值,则后面新增同名的key的操作会被忽略掉</span></span><br><span class="line">set(<span class="string">'key'</span>,<span class="string">'value'</span>,<span class="string">'有效期'</span>); <span class="comment">//改</span></span><br><span class="line">get(<span class="string">'key'</span>); <span class="comment">//取</span></span><br><span class="line">delete(<span class="string">'key'</span>); <span class="comment">//删</span></span><br><span class="line">flush(); <span class="comment">//清空所有缓存数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 文件依赖</span></span><br><span class="line"><span class="comment">//将数据存储到文件中</span></span><br><span class="line">$file = <span class="keyword">new</span> \yii\caching\FileDependency([<span class="string">'fileName'</span>=&gt;<span class="string">'xxx'</span>]);</span><br><span class="line">add(<span class="string">'key'</span>,<span class="string">'value'</span>,<span class="string">'有效期'</span>,$file); </span><br><span class="line"></span><br><span class="line"><span class="comment">//3. 表达式依赖</span></span><br><span class="line">$dependncy = <span class="keyword">new</span> \yii\caching\ExpressuibDependency(</span><br><span class="line">	[<span class="string">'experssion'</span>=&gt;<span class="string">'\YII::$app-&gt;requst-&gt;get("name")'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. DB依赖</span></span><br><span class="line">$dependncy = <span class="keyword">new</span> \yii\caching\DbDependency(</span><br><span class="line">[<span class="string">'sql'</span>=&gt;<span class="string">'$sql'</span>]);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>片段缓存</p>
+<p>​    缓存页面一部分内容  需要使用缓存组件</p>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//缓存内容</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;beginCache(<span class="string">'模块id'</span>))&#123;<span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//缓存内容</span></span><br><span class="line">&lt;div id=<span class="string">"xxx"</span>&gt;&lt;/div&gt;</span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">$this</span>-&gt;endCatch();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//设置缓存时间</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//设置缓存时间为15毫秒</span></span><br><span class="line">$duration = <span class="number">15</span>;</span><br><span class="line"><span class="keyword">$this</span>-&gt;beginCache(<span class="string">'模块'</span>,[<span class="string">'duration'</span>=&gt;$duration]);<span class="comment">//设置文件缓存时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//设置缓存依赖</span></span><br><span class="line">$dependency=[</span><br><span class="line">  <span class="string">'class'</span>=&gt;<span class="string">'yii\caching\FileDependency'</span>,<span class="comment">//文件依赖</span></span><br><span class="line">  <span class="string">'fileName'</span>=&gt;<span class="string">'test.txt'</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">$this</span>-&gt;beginCache(<span class="string">'模块'</span>,[<span class="string">'dependency'</span>=&gt;$dependency]);<span class="comment">//设置文件缓存时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//缓存开关</span></span><br><span class="line">$enabled = <span class="keyword">false</span>; <span class="comment">//不使用缓存</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;beginCache(<span class="string">'模块'</span>,[<span class="string">'enabled'</span>=&gt;$enabled]);<span class="comment">//设置文件缓存时间</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>页面缓存</p>
+<p>控制器中行为在操作之前执行 ,方法名为  behaviors(),在fail方法中先声明使用页面缓存</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">behaviors</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    <span class="string">'pageCache'</span>=&gt;[</span><br><span class="line">     <span class="string">'class'</span>=&gt;<span class="string">'yii\filters\PageCache'</span>,<span class="comment">//指定缓存方式</span></span><br><span class="line">      <span class="string">'duration'</span>=&gt;<span class="number">1000</span>,<span class="comment">//设置缓存时间</span></span><br><span class="line">      <span class="string">'only'</span>=&gt;[<span class="string">'index],//指定那些控制器可以使用缓存配置 只在index中使用缓存</span></span><br><span class="line"><span class="string">      '</span>dependency<span class="string">'=&gt;[//指定依赖方式</span></span><br><span class="line"><span class="string">         '</span><span class="class"><span class="keyword">class</span>'=&gt;'<span class="title">yii</span>\<span class="title">caching</span>\<span class="title">FileDenpency</span>',</span></span><br><span class="line"><span class="class">         '<span class="title">fileName</span>'=&gt;'<span class="title">test</span>.<span class="title">txt</span>'</span></span><br><span class="line"><span class="class">      ]</span></span><br><span class="line"><span class="class">    ]</span></span><br><span class="line"><span class="class">  ];</span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class">          </span></span><br><span class="line">public function actionIndex()&#123;</span><br><span class="line">  $thsi-&gt;render(<span class="string">'index'</span>);</span><br><span class="line">&#125;</span><br><span class="line">          </span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>http 缓存<br>浏览器请求服务器数据是会携带last_modifide和etag 然后服务器将这两个值返回给浏览器,如果请求缓存标志一样则缓存</p>
+<p>获取文件修改时间 filemtime(‘文件名’);</p>
+<p>判断内容是否变化</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$file = fopen(<span class="string">'文件名'</span>,<span class="string">'r'</span>)<span class="comment">//打开</span></span><br><span class="line"></span><br><span class="line">$title = fgets($file);<span class="comment">//读 fgets()取一行</span></span><br><span class="line">fclose($file);<span class="comment">//关闭</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">behaviors</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    <span class="string">'class'</span>=&gt;<span class="string">'yii\filters\HttpCatche'</span>,</span><br><span class="line">    <span class="string">'lastModified'</span>=&gt;<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">123454654</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'etagSeed'</span>=&gt;<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'xxxx'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>gii工具</p>
+<p>方便高效快捷生成重复代码块</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
 
       
       
@@ -311,13 +334,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/11/多进程/">多进程</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/11/高效篇/">yii2高效篇</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
         <p><span>发布时间:</span>2017年08月11日 - 11时50分</p>
-        <p><span>最后更新:</span>2018年01月14日 - 13时07分</p>
+        <p><span>最后更新:</span>2018年02月24日 - 10时50分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/11/多进程/" title="多进程">https://waitchenx.github.io/2017/08/11/多进程/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/11/多进程/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/11/高效篇/" title="yii2高效篇">https://waitchenx.github.io/2017/08/11/高效篇/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/11/高效篇/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -330,18 +353,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/08/22/tp5.0数据库访问与ORM/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/11/扩展篇/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          数据库访问与ORM
+          yii2扩展篇
         
       </div>
     </a>
   
   
-    <a href="/2017/08/11/基础篇/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">yii2基础篇</div>
+    <a href="/2017/08/11/rest-and-restful-API/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">rest and restful API</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -352,7 +375,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#多进程"><span class="toc-number">1.</span> <span class="toc-text">多进程</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-自动加载"><span class="toc-number">1.</span> <span class="toc-text">1. 自动加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-类的映射表机制"><span class="toc-number">2.</span> <span class="toc-text">2. 类的映射表机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-组件的延迟加载"><span class="toc-number">3.</span> <span class="toc-text">3. 组件的延迟加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缓存"><span class="toc-number">4.</span> <span class="toc-text">4. 缓存</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -400,7 +423,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/08/11/多进程/" data-title="多进程" data-url="https://waitchenx.github.io/2017/08/11/多进程/"></div>
+    <div class="ds-thread" data-thread-key="2017/08/11/高效篇/" data-title="yii2高效篇" data-url="https://waitchenx.github.io/2017/08/11/高效篇/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -423,13 +446,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/22/tp5.0数据库访问与ORM/" title="上一篇: 数据库访问与ORM">
+            <a href="/2017/08/11/扩展篇/" title="上一篇: yii2扩展篇">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/11/基础篇/" title="下一篇: yii2基础篇">
+            <a href="/2017/08/11/rest-and-restful-API/" title="下一篇: rest and restful API">
                 <i class="fa fa-angle-right"></i>
             </a>
         

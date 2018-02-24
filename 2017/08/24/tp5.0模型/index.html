@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>数据库访问与ORM | Hexo</title>
+  <title>模型相关使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tp5.0数据库访问">
+  <meta name="description" content="tp5.0模型相关">
 <meta name="keywords" content="tp5.0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库访问与ORM">
-<meta property="og:url" content="https://waitchenx.github.io/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/index.html">
+<meta property="og:title" content="模型相关使用">
+<meta property="og:url" content="https://waitchenx.github.io/2017/08/24/tp5.0模型/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="tp5.0数据库访问">
+<meta property="og:description" content="tp5.0模型相关">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-22T14:03:34.000Z">
+<meta property="og:updated_time" content="2017-08-24T14:52:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库访问与ORM">
-<meta name="twitter:description" content="tp5.0数据库访问">
+<meta name="twitter:title" content="模型相关使用">
+<meta name="twitter:description" content="tp5.0模型相关">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/rest-restful-api/" style="font-size: 10px;">rest restful api</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/tp5-0/" style="font-size: 20px;">tp5.0</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+                        <a href="/tags/rest-restful-api/" style="font-size: 10px;">rest restful api</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/tp5-0/" style="font-size: 20px;">tp5.0</a> <a href="/tags/yii2/" style="font-size: 20px;">yii2</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
                     </div>
                 </section>
                 
@@ -206,11 +206,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-╩¤╛▌┐т╖├╬╩╙ыORM" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-tp5.0模型" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/" class="article-date">
-      <time datetime="2017-08-22T06:22:32.000Z" itemprop="datePublished">2017-08-22</time>
+      <a href="/2017/08/24/tp5.0模型/" class="article-date">
+      <time datetime="2017-08-24T06:01:52.000Z" itemprop="datePublished">2017-08-24</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数据库访问与ORM
+      模型相关使用
     </h1>
   
 
@@ -248,24 +248,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>​    修改database.php文件 </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数据库类型</span></span><br><span class="line">   <span class="string">'type'</span>            =&gt; <span class="string">'mysql'</span>,</span><br><span class="line">   <span class="comment">// 服务器地址</span></span><br><span class="line">   <span class="string">'hostname'</span>        =&gt; <span class="string">'127.0.0.1'</span>,</span><br><span class="line">   <span class="comment">// 数据库名</span></span><br><span class="line">   <span class="string">'database'</span>        =&gt; <span class="string">'zerg'</span>,</span><br><span class="line">   <span class="comment">// 用户名</span></span><br><span class="line">   <span class="string">'username'</span>        =&gt; <span class="string">'root'</span>,</span><br><span class="line">   <span class="comment">// 密码</span></span><br><span class="line">   <span class="string">'password'</span>        =&gt; <span class="string">''</span>,</span><br><span class="line">   <span class="comment">// 端口</span></span><br><span class="line">   <span class="string">'hostport'</span>        =&gt; <span class="string">'3306'</span>,</span><br></pre></td></tr></table></figure>
-<p>基本使用</p>
-<pre><code>1. 原生sql
-</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Db</span>;</span><br><span class="line">$result = Db::query(<span class="string">"select * from xxx where xxx='xxx'"</span>);</span><br></pre></td></tr></table></figure>
-<p>2.查询构造器</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Db</span>;</span><br><span class="line">$result = Db::table(<span class="string">'xxx'</span>)-&gt;where(<span class="string">'字段'</span>,<span class="string">'表达式'</span>,<span class="string">'值'</span>)-&gt;select();</span><br></pre></td></tr></table></figure>
-<p>使用查询构造器时where条件一般有三种形式,表达式,数组,闭包  建议使用闭包方式</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如</span></span><br><span class="line">$result = Db::table('xxx')-&gt;where(function($query)[use (xxx)]&#123;</span><br><span class="line">  $querey-&gt;where(<span class="string">'字段'</span>,<span class="string">'表达式'</span>,<span class="string">'值'</span>);</span><br><span class="line">&#125;)-&gt;select();</span><br><span class="line"><span class="comment">//use (xxx) 表示使用匿名函数内部使用外部变量</span></span><br></pre></td></tr></table></figure>
-<p>注意 在没有使用select()或者find()查询到数据之前 返回的都是一个query实例对象,查询构造器相关具体使用实例参照官方文档.</p>
-<h3 id="模型与ORM"><a href="#模型与ORM" class="headerlink" title="模型与ORM"></a>模型与ORM</h3><ol>
-<li>ORM 对象关系映射</li>
-<li>模型定义 </li>
+        <h3 id="关联模型查询"><a href="#关联模型查询" class="headerlink" title="关联模型查询"></a>关联模型查询</h3><ol>
+<li>有外键关联时,使用模型查询可以自动关联外检</li>
 </ol>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">api</span>\<span class="title">model</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Banner</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span>  $table = <span class="string">"banner_item"</span>; <span class="comment">//指定模型对应的表名</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在控制器中使用</span></span><br><span class="line">$banner = BannerModel::get($id);</span><br><span class="line"><span class="comment">//也可以使用创建对象的方式访问get方法  习惯问题</span></span><br><span class="line">$bannerModel = <span class="keyword">new</span> BannerModel();</span><br><span class="line">$banner = $bannerModel-&gt;get($id);</span><br></pre></td></tr></table></figure>
-<p>注意使用Db和使用模型需要注意的查询发放在Db中主要有find()和select()</p>
-<p>在模型中有get() all() find() select()</p>
-<p>使用模型返回的查询结果是一个对象</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当前模型中声明关联</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关联模型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> \think\model\relation\HasMany</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     <span class="comment">//hasMany 一对多</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">items</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(<span class="string">'关联模型'</span>,<span class="string">'当前字段'</span>,<span class="string">'关联字段'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//belongsTo 一对一</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">image</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsTo(<span class="string">'Image'</span>,<span class="string">'img_id'</span>,<span class="string">'id'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//调用时 使用with()  连接 多个使用数组方式</span></span><br><span class="line">     $banner = Banner::with([<span class="string">'items'</span>,<span class="string">"items.image"</span>])-&gt;find($id);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>影藏模型字段和显示模型字段</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//隐藏字段</span><br><span class="line">protected $hidden = [&apos;id&apos;,&apos;delete_time&apos;,&apos;update_time&apos;];</span><br><span class="line">//显示字段 用其一就可以了</span><br><span class="line"> protected $visible = [&apos;name&apos;];</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>自定义配置文件</p>
+<p>在模块下声明extra文件夹 在文件夹下设置对应的配置文件,配置文件书写方式参照默认配置文件,返回一个数组, 适应是使用config助手函数获取</p>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//entry.php  自定义配置文件</span></span><br><span class="line"><span class="keyword">return</span>[</span><br><span class="line">  <span class="string">'img_url'</span>=&gt;<span class="string">'http://z.cn/images'</span></span><br><span class="line">];</span><br><span class="line"><span class="comment">//获取时</span></span><br><span class="line"><span class="comment">//$c = config('文件名.数组键名');</span></span><br><span class="line">$c = config(<span class="string">'entry.img_url'</span>);</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>图片资源url路径配置  读取器巧妙应用</p>
+<p>在模型中定义读取器修改数据 ,为了达到更好的代码复用,声明一个BaseModel,在模型定义通用处理方法,在子类中继承和调用.</p>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//BaseModel</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 图片url拼接</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> $val  修改值</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> $data 当前一组数据</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">protected</span>  <span class="function"><span class="keyword">function</span> <span class="title">getImageUrl</span><span class="params">($val,$data)</span></span>&#123;</span><br><span class="line">       $fianlUrl = $val;</span><br><span class="line">       <span class="keyword">if</span>($data[<span class="string">'from'</span>] == <span class="number">1</span>)&#123;</span><br><span class="line">           $fianlUrl = config(<span class="string">'entry.img_url'</span>).$val;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> $fianlUrl;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//子类</span></span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 数据获取器</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> $val 当前字段</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> $data  一组数据</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> string 返回处理后的数据    方法名get是固定的 URL 是处理的字段名,对应表 Attr 特点属性名</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUrlAttr</span><span class="params">($val,$data)</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;getImageUrl($val,$data);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>自定义版本号</p>
+<p>在控制器中V1,V2…代表每一个版本,每个版本里获取数据的借口名一样,在书写路由的时候使用自动获取版本方式实现不同版本自动调用,而不是修改路由文件.</p>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'api/:visual/banner/:id'</span>,<span class="string">'api/:visual.Banner/getBanner'</span>);</span><br><span class="line"><span class="comment">//使用 :visual代替版本号  V1,V2....</span></span><br></pre></td></tr></table></figure>
 
       
       
@@ -320,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/">数据库访问与ORM</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/24/tp5.0模型/">模型相关使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
-        <p><span>发布时间:</span>2017年08月22日 - 14时22分</p>
-        <p><span>最后更新:</span>2017年08月22日 - 22时03分</p>
+        <p><span>发布时间:</span>2017年08月24日 - 14时01分</p>
+        <p><span>最后更新:</span>2017年08月24日 - 22时52分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/" title="数据库访问与ORM">https://waitchenx.github.io/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/24/tp5.0模型/" title="模型相关使用">https://waitchenx.github.io/2017/08/24/tp5.0模型/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/24/tp5.0模型/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -339,18 +347,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/08/24/─г╨═╧р╣╪╩╣╙├/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/14/面试题总结/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          模型相关使用
+          面试题
         
       </div>
     </a>
   
   
-    <a href="/2017/08/11/AOP╙ы╚л╛╓╥ь│г┤ж└э/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AOP与全局异常处理</div>
+    <a href="/2017/08/22/tp5.0数据库访问与ORM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库访问与ORM</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -361,7 +369,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接数据库"><span class="toc-number">1.</span> <span class="toc-text">连接数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型与ORM"><span class="toc-number">2.</span> <span class="toc-text">模型与ORM</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关联模型查询"><span class="toc-number">1.</span> <span class="toc-text">关联模型查询</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -409,7 +417,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/" data-title="数据库访问与ORM" data-url="https://waitchenx.github.io/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/"></div>
+    <div class="ds-thread" data-thread-key="2017/08/24/tp5.0模型/" data-title="模型相关使用" data-url="https://waitchenx.github.io/2017/08/24/tp5.0模型/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -432,18 +440,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/24/─г╨═╧р╣╪╩╣╙├/" title="上一篇: 模型相关使用">
+            <a href="/2018/01/14/面试题总结/" title="上一篇: 面试题">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/11/AOP╙ы╚л╛╓╥ь│г┤ж└э/" title="下一篇: AOP与全局异常处理">
+            <a href="/2017/08/22/tp5.0数据库访问与ORM/" title="下一篇: 数据库访问与ORM">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/01/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/面试题总结/">面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/─г╨═╧р╣╪╩╣╙├/">模型相关使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/">数据库访问与ORM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/AOP╙ы╚л╛╓╥ь│г┤ж└э/">AOP与全局异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/多进程/">多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/">tp5.0自定义验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/lenmarkdown/">markdown如何使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/01/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/面试题总结/">面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/tp5.0模型/">模型相关使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/tp5.0数据库访问与ORM/">数据库访问与ORM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/多进程/">多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/基础篇/">yii2基础篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/AOP与全局异常处理/">AOP与全局异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/工具篇/">yii2工具篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/扩展篇/">yii2扩展篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/高效篇/">yii2高效篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

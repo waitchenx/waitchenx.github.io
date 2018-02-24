@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>yii2扩展篇 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="yii2扩展篇">
+<meta name="keywords" content="yii2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yii2扩展篇">
+<meta property="og:url" content="https://waitchenx.github.io/2017/08/11/扩展篇/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="yii2扩展篇">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-24T02:52:55.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="yii2扩展篇">
+<meta name="twitter:description" content="yii2扩展篇">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.jpg">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">chenx</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">首页</a></li>
+                        
+                            <li><a href="/works">随笔</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/waitchenx" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="#" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/rest-restful-api/" style="font-size: 10px;">rest restful api</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/tp5-0/" style="font-size: 20px;">tp5.0</a> <a href="/tags/yii2/" style="font-size: 20px;">yii2</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://adolphgithub.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">You’ll be alright,no one can hurt you now</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">chenx</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">chenx</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">首页</a></li>
+                
+                    <li><a href="/works">随笔</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/waitchenx" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-扩展篇" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/11/扩展篇/" class="article-date">
+      <time datetime="2017-08-11T03:50:14.000Z" itemprop="datePublished">2017-08-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      yii2扩展篇
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/yii2/">yii2</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yii2/">yii2</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="可扩展性"><a href="#可扩展性" class="headerlink" title="可扩展性"></a>可扩展性</h3><ol>
+<li><p>模块化</p>
+<p>细分模块化 创建 modules 文件夹</p>
+<p>使用gii工具生成 Module Generator</p>
+<p>在控制器中调用子模块方式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 加载调用子模块 使用应用主体方式调用子模块</span></span><br><span class="line">$article = \YII::$app-&gt;getModule(<span class="string">'子模块名称'</span>);</span><br><span class="line"><span class="comment">//2. 调用子模块的操作 使用runAction()调用</span></span><br><span class="line">$article-&gt;runAction(<span class="string">'default/index'</span>);  <span class="comment">//控制器/方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用之前注意事项 ,在使用gii Module Generator 生成工具生成之后需要将modlue 配置项加入配置文件中  注意配置文件web.PHP</span></span><br><span class="line"><span class="comment">//示例 配置项</span></span><br><span class="line"> <span class="string">'modules'</span> =&gt; [</span><br><span class="line">        <span class="string">'article'</span> =&gt; [</span><br><span class="line">            <span class="string">'class'</span> =&gt; <span class="string">'app\modules\article\Article'</span>,</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
+<li><p>事件机制</p>
+<ul>
+<li><p>扫描式</p>
+</li>
+<li><p>绑定式 yii2通常使用这种方式   使用  触发 trigger()  执行on()  关闭执行off() 触发;</p>
+<p>示例 猫叫了之后老鼠跑</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 在Vendor目录里面创建一个文件夹用来管理先关类文件</span></span><br><span class="line"><span class="comment">//2. 创建一个 Cat.php</span></span><br><span class="line"><span class="comment">//猫类</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">vendor</span>\<span class="title">animal</span>;</span><br><span class="line"><span class="keyword">use</span> \<span class="title">yii</span>\<span class="title">base</span>\<span class="title">Component</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">shout</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'猫叫'</span>;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;trigger(<span class="string">'需要绑定的事件'</span>) <span class="comment">//触发 该方法在 \yii\base\Component组件类中 所以需要继承</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//老鼠类</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">vendor</span>\<span class="title">animal</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mourse</span></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">echo</span> <span class="string">'我跑了&lt;br&gt;'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在控制器中完成所有流程  </span></span><br><span class="line"><span class="comment">//实例化一个老鼠 一个猫</span></span><br><span class="line"><span class="keyword">namespace</span>  <span class="title">app</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> \<span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"><span class="keyword">use</span>  <span class="title">vendor</span>\<span class="title">animal</span>\<span class="title">Cat</span>;</span><br><span class="line"><span class="keyword">use</span>  <span class="title">vendor</span>\<span class="title">animal</span>\<span class="title">Mouse</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AnimalController</span> <span class="title">extents</span> <span class="title">Controller</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span><span class="params">()</span></span>&#123;</span><br><span class="line">      $cat = <span class="keyword">new</span> Cat();</span><br><span class="line">      $mouse = <span class="keyword">new</span> Mouse();</span><br><span class="line">      <span class="comment">//使用on方法捆绑调用 on()方法是Component组建中的</span></span><br><span class="line">      </span><br><span class="line">      $cat-&gt;on(<span class="string">'事假'</span>,[<span class="string">'捆绑谁'</span>,<span class="string">'捆绑的方法'</span>]);</span><br><span class="line">      $cat-&gt;shout();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要给来传递值 使用Event</span></span><br><span class="line"><span class="comment">//猫类 </span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">vendor</span>\<span class="title">animal</span>;</span><br><span class="line"><span class="keyword">use</span> \<span class="title">yii</span>\<span class="title">base</span>\<span class="title">Component</span>;</span><br><span class="line"><span class="keyword">use</span> \<span class="title">yii</span>\<span class="title">base</span>\<span class="title">Event</span>;</span><br><span class="line"></span><br><span class="line">calss myEvent extents Event&#123;</span><br><span class="line">  <span class="keyword">public</span>  $message;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">shout</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'猫叫'</span>;</span><br><span class="line">     $myEvent = <span class="keyword">new</span> myEvent();</span><br><span class="line">      $myEvemt-&gt;message = <span class="string">'my event &lt;br/&gt;'</span> ;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;trigger(<span class="string">'需要绑定的事件'</span>,$myEvent) <span class="comment">//触发 该方法在 \yii\base\Component组件类中 所以需要继承</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//老鼠类</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">vendor</span>\<span class="title">animal</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mourse</span></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">($e)</span></span>&#123;</span><br><span class="line">   	<span class="keyword">echo</span> <span class="string">'我跑了&lt;br&gt;'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//狗类</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">vendor</span>\<span class="title">animal</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">look</span><span class="params">($e)</span></span>&#123;</span><br><span class="line">   	<span class="keyword">echo</span> <span class="string">'我再看&lt;br&gt;'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在控制器中完成所有流程  </span></span><br><span class="line"><span class="comment">//实例化一个老鼠 一个猫</span></span><br><span class="line"><span class="keyword">namespace</span>  <span class="title">app</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> \<span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"><span class="keyword">use</span>  <span class="title">vendor</span>\<span class="title">animal</span>\<span class="title">Cat</span>;</span><br><span class="line"><span class="keyword">use</span>  <span class="title">vendor</span>\<span class="title">animal</span>\<span class="title">Mouse</span>;</span><br><span class="line"><span class="keyword">use</span>  <span class="title">vendor</span>\<span class="title">animal</span>\<span class="title">myEvent</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AnimalController</span> <span class="title">extents</span> <span class="title">Controller</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span><span class="params">()</span></span>&#123;</span><br><span class="line">      $cat = <span class="keyword">new</span> Cat();</span><br><span class="line">      $mouse = <span class="keyword">new</span> Mouse();</span><br><span class="line">      <span class="comment">//使用on方法捆绑调用 on()方法是Component组建中的</span></span><br><span class="line">             $cat-&gt;on(<span class="string">'事件'</span>,[<span class="string">'捆绑谁'</span>,<span class="string">'捆绑的方法'</span>]);</span><br><span class="line">      <span class="comment">//取消关注</span></span><br><span class="line">      $cat-&gt;off(<span class="string">'事件'</span>,[<span class="string">'捆绑谁'</span>,<span class="string">'捆绑的方法'</span>]);</span><br><span class="line">       $cat-&gt;shout();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//类级别的事件绑定</span></span><br><span class="line"><span class="comment">//将 Event 类放到控制器中</span></span><br><span class="line"> <span class="comment">//使用Event::on(Cat::className()类,'绑定哪个事件',['绑定谁','谁的方法')来绑定</span></span><br><span class="line"><span class="comment">//使用Event::on(Cat::className()类,'绑定哪个事件',['绑定谁',function()&#123;</span></span><br><span class="line"><span class="comment">//    echo'miao event has triggered &lt;br/&gt;';</span></span><br><span class="line"><span class="comment">//&#125;); 匿名函数方式来绑定</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用应用主体的方式来绑定 EVENT_AFTER_REQUEST 操作完成之后触发 \YII::$app单例</span></span><br><span class="line">\YII::$app-&gt;on(\yii\base\Application::EVENT_AFTER_REQUEST,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'event after request'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'hello index'</span>;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>mixin</p>
+<p>这个没有</p>
+</li>
+<li><p>依赖注入 </p>
+<p>1.依赖容器  $container = new Container();  \yii\di\Container</p>
+<p>定义并解决依赖 关系</p>
+<p>//使用get方法调用类</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">$container = <span class="keyword">new</span> Container();</span><br><span class="line">$car = $container-&gt;get(<span class="string">'app\controllers\Car'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//get 作用</span></span><br><span class="line"><span class="comment">//1. $driver = new ManDriver(); </span></span><br><span class="line"><span class="comment">//2. $car = new Car($driver)</span></span><br><span class="line"><span class="comment">//实例化ManDriver()后示例传给Car() 然后在实例化Car 强关联 </span></span><br><span class="line">$car-&gt;run();</span><br><span class="line"></span><br><span class="line">calss Car&#123;</span><br><span class="line">  <span class="keyword">private</span> $driver = <span class="keyword">null</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(ManDriver $driver)</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;$driver = $driver;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">$this</span>-&gt;driver-&gt;driver;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ManDriver</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">driver</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'xxx'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上方式为强关联 为了消除强关联 定义一个接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Driver</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">drive</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ManDriver 继承Driver类</span></span><br><span class="line">calss Car&#123;</span><br><span class="line">  <span class="keyword">private</span> $driver = <span class="keyword">null</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(Driver $driver)</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;$driver = $driver;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">$this</span>-&gt;driver-&gt;driver;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ManDriver</span> <span class="keyword">implements</span> <span class="title">Driver</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">driver</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'xxx'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">当使用实例化的时候会发现接口不能被实例化</span><br><span class="line"><span class="comment">//则需要使用set方法设置实例化时课可代替的其他类</span></span><br><span class="line">$container-&gt;set(<span class="string">'app\controllers\Driver'</span>,<span class="string">'app\controllers\ManDrover'</span>); <span class="comment">//使用get 实例化时 如果没有 Driver类 则使用 ManDrover替代</span></span><br><span class="line">$car = $container-&gt;get(<span class="string">'app\controllers\Car'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 服务定位器</span><br><span class="line"></span><br><span class="line">   配置服务的参数信息</span><br><span class="line"></span><br><span class="line">```php</span><br><span class="line">use  yii\di\ServiceLocator</span><br><span class="line"></span><br><span class="line">\YII::$container-&gt;set(&apos;app\controllers\Driver&apos;,&apos;app\controllers\ManDrover&apos;);</span><br><span class="line"></span><br><span class="line">$s1 = new  ServiceLocator();</span><br><span class="line">$s1-&gt;set(&apos;car&apos;,[</span><br><span class="line">  &apos;class&apos;=&gt;&apos;app\controllers\car&apos;</span><br><span class="line">]);</span><br><span class="line">$car = $s1-&gt;get();</span><br><span class="line">$car-&gt;run();</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
+</ol>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>请随意</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/08/11/扩展篇/">yii2扩展篇</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
+        <p><span>发布时间:</span>2017年08月11日 - 11时50分</p>
+        <p><span>最后更新:</span>2018年02月24日 - 10时52分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/11/扩展篇/" title="yii2扩展篇">https://waitchenx.github.io/2017/08/11/扩展篇/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/11/扩展篇/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/08/11/工具篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          yii2工具篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/11/高效篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">yii2高效篇</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#可扩展性"><span class="toc-number">1.</span> <span class="toc-text">可扩展性</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/08/11/扩展篇/" data-title="yii2扩展篇" data-url="https://waitchenx.github.io/2017/08/11/扩展篇/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chenx"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/08/11/工具篇/" title="上一篇: yii2工具篇">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/08/11/高效篇/" title="下一篇: yii2高效篇">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/01/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/面试题总结/">面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/tp5.0模型/">模型相关使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/tp5.0数据库访问与ORM/">数据库访问与ORM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/多进程/">多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/基础篇/">yii2基础篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/AOP与全局异常处理/">AOP与全局异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/工具篇/">yii2工具篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/扩展篇/">yii2扩展篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/高效篇/">yii2高效篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 chenx
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问量: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 3;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
