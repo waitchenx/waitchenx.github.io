@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tp5.0自定义验证 | Hexo</title>
+  <title>多进程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tp5.0验证器">
-<meta name="keywords" content="tp5.0">
+  <meta name="description" content="多进程">
+<meta name="keywords" content="socket">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tp5.0自定义验证">
-<meta property="og:url" content="https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/index.html">
+<meta property="og:title" content="多进程">
+<meta property="og:url" content="https://waitchenx.github.io/2017/08/11/多进程/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="tp5.0验证器">
-<meta property="og:updated_time" content="2017-08-11T02:45:24.529Z">
+<meta property="og:description" content="多进程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-14T05:07:31.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tp5.0自定义验证">
-<meta name="twitter:description" content="tp5.0验证器">
+<meta name="twitter:title" content="多进程">
+<meta name="twitter:description" content="多进程">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -137,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/rest-restful-api/" style="font-size: 10px;">rest restful api</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/tp5-0/" style="font-size: 20px;">tp5.0</a>
+                        <a href="/tags/rest-restful-api/" style="font-size: 10px;">rest restful api</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/tp5-0/" style="font-size: 20px;">tp5.0</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
                     </div>
                 </section>
                 
@@ -205,11 +206,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-tp5-0自定义验证" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-多进程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/10/tp5-0自定义验证/" class="article-date">
-      <time datetime="2017-08-10T11:01:36.000Z" itemprop="datePublished">2017-08-10</time>
+      <a href="/2017/08/11/多进程/" class="article-date">
+      <time datetime="2017-08-11T03:50:14.000Z" itemprop="datePublished">2017-08-11</time>
 </a>
     </div>
   
@@ -222,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tp5.0自定义验证
+      多进程
     </h1>
   
 
@@ -231,13 +232,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tp5-0-小程序/">tp5.0+小程序</a>
+    <a class="article-category-link" href="/categories/socket/">socket</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tp5-0/">tp5.0</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket/">socket</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -247,39 +248,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="验证器"><a href="#验证器" class="headerlink" title="验证器"></a>验证器</h2><ol>
-<li><p>独立验证</p>
-<p>​    使用validate 类进行验证.使用tp5内置的验证规则</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用实例</span></div><div class="line">$data = [</div><div class="line">  <span class="string">'name'</span>=&gt;<span class="string">'chenx'</span>,</div><div class="line">  <span class="string">'email'</span>=&gt;<span class="string">'chenx@qq.com'</span></div><div class="line">];</div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</div><div class="line">$validate = <span class="keyword">new</span> validate([</div><div class="line">  <span class="string">'name'</span>=&gt;<span class="string">'require|min:4'</span>,</div><div class="line">  <span class="string">'email'</span>=&gt;<span class="string">'email'</span>,</div><div class="line">]);</div><div class="line">$result = $validate-&gt;batch()-&gt;check($data);</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>验证器验证</p>
-<p>​    验证器是为具体的验证场景或者特定的数据进行验证.</p>
-<p>​    使用实例</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.在模块下自定义一个validate文件夹 用来存放验证器</span></div><div class="line"><span class="comment">//2.在验证器中继承基础验证器 validate</span></div><div class="line"><span class="comment">//3.书写验证规则</span></div><div class="line"><span class="comment">//4.在需要验证的地方创建 对应的验证器实例对象 使用check()方法验证</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">validate</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Validate</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">protected</span> $rule = [</div><div class="line">        <span class="string">'name'</span>  =&gt;  <span class="string">'require|max:25'</span>,</div><div class="line">        <span class="string">'email'</span> =&gt;  <span class="string">'email'</span>,</div><div class="line">    ];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line">$validate = <span class="keyword">new</span> user();</div><div class="line">$result = $validate-&gt;check($date);</div></pre></td></tr></table></figure>
-<ol>
-<li><p>自定义自己的验证器</p>
-<ol>
-<li><p>同上所述创建对应的验证规则</p>
-</li>
-<li><p>为了方便调用不需要在到对应地方去接收数据,我在在验证器上层在加一个basevalidate</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//basevalidate</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">validate</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">request</span>;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Validate</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//定义验证方法</span></div><div class="line">    <span class="comment">//需要做到接收数据 并验证</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">gocheck</span><span class="params">()</span></span>&#123;</div><div class="line">      $request = request::instance();</div><div class="line">      $perms = $reqest-&gt;param();</div><div class="line">      $result = <span class="keyword">$this</span>-&gt;check($perms);</div><div class="line">      <span class="keyword">if</span>(!result)&#123;</div><div class="line">      	$error = <span class="keyword">$this</span>-&gt;getError();</div><div class="line">      	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>($error); <span class="comment">//这里需要注意  许在配置文件中将'app_trace'设置为false,</span></div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">//使用的地方创建对应的验证器实例然后调用gocheck();</span></div><div class="line"> (<span class="keyword">new</span> user())-&gt;gocheck();</div></pre></td></tr></table></figure>
-<ol>
-<li><p>自定义验证器</p>
-<ol>
-<li>实例 ID必须是正整数</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">protected $rule = [</div><div class="line">        &apos;id&apos; =&gt; &apos;require|isPositiveInteger&apos;,</div><div class="line">    ];</div><div class="line"></div><div class="line">    protected  function isPositiveInteger($value, $rule = &apos;&apos;, $data = &apos;&apos;, $field = &apos;&apos;)&#123;</div><div class="line">        if(is_numeric($value) &amp;&amp; is_int($value + 0) &amp;&amp; ($value + 0) &gt;0)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;else&#123;</div><div class="line">            return $field .&apos;必须是正整数&apos;;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p>​</p>
-</li>
-</ol>
+        <h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><p>需要安装pcntl扩展 </p>
+<p>查看文档</p>
+<p>pcntl_fock() 创建子进程 得到 pid</p>
+<p>处理逻辑都在子进程处理。主进程一旦关闭，所有的子进程也会被关闭。</p>
+<p>查看运行情况</p>
+<p>ps -ef | grep server.php | grep -v grep</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$socket = socket_create(AF_INET,SOCK_STREAM,SOL_TCP);</span><br><span class="line"></span><br><span class="line">socket_bind($socket,<span class="string">'127.0.0.1'</span>,<span class="number">3001</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"error"</span>);</span><br><span class="line"></span><br><span class="line">socket_listen($socket,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line"></span><br><span class="line">    $client = socket_accept($socket);</span><br><span class="line"></span><br><span class="line">    $pid = pcntl_fork();</span><br><span class="line"><span class="comment">//父进程和子进程都会执行下面代码</span></span><br><span class="line">    <span class="keyword">if</span> ($pid == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">//错误处理：创建子进程失败时返回-1.</span></span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'could not fork'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($pid) &#123;</span><br><span class="line">        <span class="comment">//关闭主进程</span></span><br><span class="line">        socket_close($client);</span><br><span class="line">        <span class="comment">//父进程会得到子进程号，所以这里是父进程执行的逻辑</span></span><br><span class="line"><span class="comment">//        pcntl_wait($status); //等待子进程中断，防止子进程成为僵尸进程。</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//子进程得到的$pid为0, 所以这里是子进程执行的逻辑。</span></span><br><span class="line">        $buf = socket_read($client,<span class="number">1024</span>);</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">'/sleep/i'</span>,$buf,$matches))&#123;</span><br><span class="line">            sleep(<span class="number">10</span>);</span><br><span class="line">            socket_write($client,<span class="string">'睡眠10秒钟'</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            socket_write($client,<span class="string">'hello socket'</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> $buf;</span><br><span class="line">        socket_close($client);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">socket_close</span><br></pre></td></tr></table></figure>
+<p>在以上程序中子进程会无限增多。关闭方式 结束使用 exit； 关闭进程</p>
+<p>pcntl_wait();等待执行 防止出现僵尸进程</p>
 
       
       
@@ -334,13 +311,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/11/多进程/">多进程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
-        <p><span>发布时间:</span>2017年08月10日 - 19时01分</p>
-        <p><span>最后更新:</span>2017年08月11日 - 10时45分</p>
+        <p><span>发布时间:</span>2017年08月11日 - 11时50分</p>
+        <p><span>最后更新:</span>2018年01月14日 - 13时07分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/10/tp5-0自定义验证/" title="tp5.0自定义验证">https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/11/多进程/" title="多进程">https://waitchenx.github.io/2017/08/11/多进程/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/11/多进程/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -353,18 +330,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/08/11/rest-and-restful-API/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/11/AOP╙ы╚л╛╓╥ь│г┤ж└э/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          rest and restful API
+          AOP与全局异常处理
         
       </div>
     </a>
   
   
-    <a href="/2017/08/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/08/11/rest-and-restful-API/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">rest and restful API</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -375,7 +352,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#验证器"><span class="toc-number">1.</span> <span class="toc-text">验证器</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#多进程"><span class="toc-number">1.</span> <span class="toc-text">多进程</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -423,7 +400,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/08/10/tp5-0自定义验证/" data-title="tp5.0自定义验证" data-url="https://waitchenx.github.io/2017/08/10/tp5-0自定义验证/"></div>
+    <div class="ds-thread" data-thread-key="2017/08/11/多进程/" data-title="多进程" data-url="https://waitchenx.github.io/2017/08/11/多进程/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -446,18 +423,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/11/rest-and-restful-API/" title="上一篇: rest and restful API">
+            <a href="/2017/08/11/AOP╙ы╚л╛╓╥ь│г┤ж└э/" title="上一篇: AOP与全局异常处理">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/10/hello-world/" title="下一篇: Hello World">
+            <a href="/2017/08/11/rest-and-restful-API/" title="下一篇: rest and restful API">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/数据库访问与ORM/">数据库访问与ORM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/AOP与全局异常处理/">AOP与全局异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/lenmarkdown/">markdown如何使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/01/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/面试题总结/">面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/─г╨═╧р╣╪╩╣╙├/">模型相关使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/╩¤╛▌┐т╖├╬╩╙ыORM/">数据库访问与ORM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/AOP╙ы╚л╛╓╥ь│г┤ж└э/">AOP与全局异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/多进程/">多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/">tp5.0自定义验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/lenmarkdown/">markdown如何使用</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -487,7 +464,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2017 chenx
+                &copy; 2018 chenx
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman

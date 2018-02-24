@@ -1,4 +1,4 @@
-/*  �����ʶ��Ч��  */
+/*  ������ʶ��Ч��  */
 span.ua {
 	display: inline-block !important;
 	margin: auto 1px .3em !important;
@@ -272,7 +272,7 @@ span.ua {
 }
 /* UA End */
 
-/* ������� CSS */
+/* �������� CSS */
 .sskadmin {
 	background-color: #00a67c!important;
 	border-color: #01B171!important;
@@ -284,7 +284,7 @@ span.ua {
 	opacity: .5;
 }
 
-/* �����ͣ��תͷ�� */
+/* ������ͣ��תͷ�� */
 #ds-reset .ds-avatar img,#ds-reset .ds-avatar img:hover {
 	-webkit-animation-fill-mode: both;
 	-moz-animation-fill-mode: both;
@@ -508,7 +508,7 @@ span.ua {
     background-image: none;
 }
 
-/* �����б��� */
+/* �����б����� */
 #ds-thread #ds-reset a{
     color: #999;
 }
@@ -565,7 +565,7 @@ span.ua {
      border: none;
 }
 
-/* ��� */
+/* ���� */
 #ds-reset .ds-highlight {
     color: #3dbcf5 !important;
 }
@@ -615,7 +615,7 @@ span.ua {
     text-shadow: none;
 }
 
-/* ͷ���� */
+/* ͷ������ */
 #ds-thread #ds-reset #ds-bubble{
 	position: absolute;
     background: #2f2f2f;

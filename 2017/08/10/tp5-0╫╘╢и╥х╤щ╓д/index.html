@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>rest and restful API | Hexo</title>
+  <title>tp5.0自定义验证 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="restful api">
-<meta name="keywords" content="rest restful api">
+  <meta name="description" content="tp5.0验证器">
+<meta name="keywords" content="tp5.0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rest and restful API">
-<meta property="og:url" content="https://waitchenx.github.io/2017/08/11/rest-and-restful-API/index.html">
+<meta property="og:title" content="tp5.0自定义验证">
+<meta property="og:url" content="https://waitchenx.github.io/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="restful api">
+<meta property="og:description" content="tp5.0验证器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-11T02:35:36.000Z">
+<meta property="og:updated_time" content="2017-08-11T02:45:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rest and restful API">
-<meta name="twitter:description" content="restful api">
+<meta name="twitter:title" content="tp5.0自定义验证">
+<meta name="twitter:description" content="tp5.0验证器">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -206,11 +206,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-rest-and-restful-API" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-tp5-0╫╘╢и╥х╤щ╓д" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/11/rest-and-restful-API/" class="article-date">
-      <time datetime="2017-08-11T02:17:16.000Z" itemprop="datePublished">2017-08-11</time>
+      <a href="/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/" class="article-date">
+      <time datetime="2017-08-10T11:01:36.000Z" itemprop="datePublished">2017-08-10</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      rest and restful API
+      tp5.0自定义验证
     </h1>
   
 
@@ -232,13 +232,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/restful-api/">restful api</a>
+    <a class="article-category-link" href="/categories/tp5-0-小程序/">tp5.0+小程序</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rest-restful-api/">rest restful api</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tp5-0/">tp5.0</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -248,38 +248,37 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="rest-and-restful-api"><a href="#rest-and-restful-api" class="headerlink" title="rest and restful api"></a>rest and restful api</h2><ol>
-<li><p>是什么</p>
-<p>​    rest是前后端交互的一整接口设计模式与规范,是一种思想,一种设计理念,然后产生了restful api </p>
+        <h2 id="验证器"><a href="#验证器" class="headerlink" title="验证器"></a>验证器</h2><ol>
+<li><p>独立验证</p>
+<p>​    使用validate 类进行验证.使用tp5内置的验证规则</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用实例</span></span><br><span class="line">$data = [</span><br><span class="line">  <span class="string">'name'</span>=&gt;<span class="string">'chenx'</span>,</span><br><span class="line">  <span class="string">'email'</span>=&gt;<span class="string">'chenx@qq.com'</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</span><br><span class="line">$validate = <span class="keyword">new</span> validate([</span><br><span class="line">  <span class="string">'name'</span>=&gt;<span class="string">'require|min:4'</span>,</span><br><span class="line">  <span class="string">'email'</span>=&gt;<span class="string">'email'</span>,</span><br><span class="line">]);</span><br><span class="line">$result = $validate-&gt;batch()-&gt;check($data);</span><br></pre></td></tr></table></figure>
+<p>​</p>
 </li>
-<li><p>restful api 基本特性</p>
+<li><p>验证器验证</p>
+<p>​    验证器是为具体的验证场景或者特定的数据进行验证.</p>
+<p>​    使用实例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.在模块下自定义一个validate文件夹 用来存放验证器</span></span><br><span class="line"><span class="comment">//2.在验证器中继承基础验证器 validate</span></span><br><span class="line"><span class="comment">//3.书写验证规则</span></span><br><span class="line"><span class="comment">//4.在需要验证的地方创建 对应的验证器实例对象 使用check()方法验证</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">validate</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Validate</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $rule = [</span><br><span class="line">        <span class="string">'name'</span>  =&gt;  <span class="string">'require|max:25'</span>,</span><br><span class="line">        <span class="string">'email'</span> =&gt;  <span class="string">'email'</span>,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">$validate = <span class="keyword">new</span> user();</span><br><span class="line">$result = $validate-&gt;check($date);</span><br></pre></td></tr></table></figure>
 <ol>
-<li>基于资源,使用URL来表示资源  使用名词来表示字眼, 使用http动词描述操作</li>
-<li>使用http动词来操作资源  put get post delete </li>
-</ol>
-</li>
-<li><p>restful api最佳实践</p>
+<li><p>自定义自己的验证器</p>
 <ol>
-<li>http动词</li>
-<li>需要对每个http请求都需要指明相应的状态码<ol>
-<li>404 资源未找到 </li>
-<li>400 参数错误</li>
-<li>200 get请求成功</li>
-<li>201 post 请求成功</li>
-<li>202 put 请求成功  在http中表示请求已经成功发送 但是没有返回结果</li>
-<li>401 未授权 </li>
-<li>403 当前资源被禁止</li>
-<li>500 服务器未知错误</li>
-</ol>
+<li><p>同上所述创建对应的验证规则</p>
 </li>
-<li>错误码 :自定义的错误ID好</li>
-<li>统一描述错误:错误码 错误信息 当前URL</li>
-</ol>
-</li>
-<li><p>如何学习 restful api</p>
+<li><p>为了方便调用不需要在到对应地方去接收数据,我在在验证器上层在加一个basevalidate</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//basevalidate</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">validate</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Validate</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">request</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Validate</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//定义验证方法</span></span><br><span class="line">    <span class="comment">//需要做到接收数据 并验证</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">gocheck</span><span class="params">()</span></span>&#123;</span><br><span class="line">      $request = request::instance();</span><br><span class="line">      $perms = $reqest-&gt;param();</span><br><span class="line">      $result = <span class="keyword">$this</span>-&gt;check($perms);</span><br><span class="line">      <span class="keyword">if</span>(!result)&#123;</span><br><span class="line">      	$error = <span class="keyword">$this</span>-&gt;getError();</span><br><span class="line">      	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>($error); <span class="comment">//这里需要注意  许在配置文件中将'app_trace'设置为false,</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用的地方创建对应的验证器实例然后调用gocheck();</span></span><br><span class="line"> (<span class="keyword">new</span> user())-&gt;gocheck();</span><br></pre></td></tr></table></figure>
 <ol>
-<li>可以参考别人的 比如豆瓣api  GitHub开发者api</li>
+<li><p>自定义验证器</p>
+<ol>
+<li>实例 ID必须是正整数</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">protected $rule = [</span><br><span class="line">        &apos;id&apos; =&gt; &apos;require|isPositiveInteger&apos;,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    protected  function isPositiveInteger($value, $rule = &apos;&apos;, $data = &apos;&apos;, $field = &apos;&apos;)&#123;</span><br><span class="line">        if(is_numeric($value) &amp;&amp; is_int($value + 0) &amp;&amp; ($value + 0) &gt;0)&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return $field .&apos;必须是正整数&apos;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>​</p>
 </li>
 </ol>
 
@@ -336,13 +335,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/">tp5.0自定义验证</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
-        <p><span>发布时间:</span>2017年08月11日 - 10时17分</p>
-        <p><span>最后更新:</span>2017年08月11日 - 10时35分</p>
+        <p><span>发布时间:</span>2017年08月10日 - 19时01分</p>
+        <p><span>最后更新:</span>2017年08月11日 - 10时45分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/11/rest-and-restful-API/" title="rest and restful API">https://waitchenx.github.io/2017/08/11/rest-and-restful-API/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/11/rest-and-restful-API/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/" title="tp5.0自定义验证">https://waitchenx.github.io/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -355,18 +354,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/08/11/多进程/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/11/rest-and-restful-API/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          多进程
+          rest and restful API
         
       </div>
     </a>
   
   
-    <a href="/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">tp5.0自定义验证</div>
+    <a href="/2017/06/01/lenmarkdown/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">markdown如何使用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -377,7 +376,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#rest-and-restful-api"><span class="toc-number">1.</span> <span class="toc-text">rest and restful api</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#验证器"><span class="toc-number">1.</span> <span class="toc-text">验证器</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -425,7 +424,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/08/11/rest-and-restful-API/" data-title="rest and restful API" data-url="https://waitchenx.github.io/2017/08/11/rest-and-restful-API/"></div>
+    <div class="ds-thread" data-thread-key="2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/" data-title="tp5.0自定义验证" data-url="https://waitchenx.github.io/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -448,13 +447,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/11/多进程/" title="上一篇: 多进程">
+            <a href="/2017/08/11/rest-and-restful-API/" title="上一篇: rest and restful API">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/10/tp5-0╫╘╢и╥х╤щ╓д/" title="下一篇: tp5.0自定义验证">
+            <a href="/2017/06/01/lenmarkdown/" title="下一篇: markdown如何使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
