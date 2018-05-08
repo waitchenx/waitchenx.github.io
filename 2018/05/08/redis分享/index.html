@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>正则表达式 | Hexo</title>
+  <title>redis | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正则表达式">
-<meta name="keywords" content="正则表达式">
+  <meta name="description" content="redis">
+<meta name="keywords" content="redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="https://waitchenx.github.io/2018/02/01/正则表达式/index.html">
+<meta property="og:title" content="redis">
+<meta property="og:url" content="https://waitchenx.github.io/2018/05/08/redis分享/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="正则表达式">
+<meta property="og:description" content="redis">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-01T11:20:26.952Z">
+<meta property="og:updated_time" content="2018-05-08T12:58:48.864Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="正则表达式">
+<meta name="twitter:title" content="redis">
+<meta name="twitter:description" content="redis">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/rest-restful-api/" style="font-size: 10px;">rest restful api</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/tp5-0/" style="font-size: 20px;">tp5.0</a> <a href="/tags/yii2/" style="font-size: 20px;">yii2</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+                        <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest-restful-api/" style="font-size: 10px;">rest restful api</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/tp5-0/" style="font-size: 20px;">tp5.0</a> <a href="/tags/yii2/" style="font-size: 20px;">yii2</a> <a href="/tags/模板/" style="font-size: 10px;">模板</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
                     </div>
                 </section>
                 
@@ -206,11 +206,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-redis分享" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/02/01/正则表达式/" class="article-date">
-      <time datetime="2018-02-01T11:20:26.952Z" itemprop="datePublished">2018-02-01</time>
+      <a href="/2018/05/08/redis分享/" class="article-date">
+      <time datetime="2018-05-08T12:58:48.864Z" itemprop="datePublished">2018-05-08</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      正则表达式
+      redis
     </h1>
   
 
@@ -232,13 +232,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/正则表达式/">正则表达式</a>
+    <a class="article-category-link" href="/categories/redis/">redis</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -248,23 +248,46 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ol>
-<li><p>正则规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\w 大小写字母、数字、下划线</span><br><span class="line">\s 匹配任意一个空格　</span><br><span class="line">&#123;3&#125;　代表只有３个匹配字符</span><br><span class="line">[A-Z] 大写字母的Ａ－Ｚ</span><br><span class="line">[a-z] 小写字母a-z</span><br><span class="line">+ 表示一个到多个</span><br><span class="line">＾匹配一行的开头　以什么开头</span><br><span class="line">$ 以什么结尾</span><br><span class="line">. 代表除\r\n以外的单个字符</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>正则精髓之小括号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">() 进行分组　小括号里面的值能被打印出来　　在小括号里面加?&lt;xxx&gt; 表示存副本</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>正则精髓之中括号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[] 范围　自定义范围</span><br><span class="line">[^a-e] 不在a-e 的范围</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>未完待续</p>
-</li>
-</ol>
-
+        <p>###redis</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><pre><code>用来做缓存,优化,属于非关系型数据库
+</code></pre><p>####关系型数据库 存储方式 key=&gt;val</p>
+<h4 id="redis数据类型"><a href="#redis数据类型" class="headerlink" title="redis数据类型"></a>redis数据类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">	1 字符串 string</span><br><span class="line">		set key value</span><br><span class="line">		get key</span><br><span class="line">	2 hash</span><br><span class="line">		hmset key  value</span><br><span class="line">		hget key</span><br><span class="line">	3 列表 list 读取</span><br><span class="line">		lpush key value</span><br><span class="line">		lrange key </span><br><span class="line">		</span><br><span class="line">	4 集合 set</span><br><span class="line">		sadd key value</span><br><span class="line">		smembers key</span><br><span class="line">		</span><br><span class="line">	5 有序集合</span><br><span class="line">		zadd key value</span><br><span class="line">		zrange key</span><br><span class="line">```	</span><br><span class="line">#### 应用场景</span><br><span class="line">1.热点数据</span><br><span class="line">2. 计数器</span><br><span class="line">3. 统计点击数</span><br><span class="line">4. 订阅 限制</span><br><span class="line">5. 排名 用户列表,好友 列表</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 常用代码实例</span><br><span class="line">1 字段缓存</span><br></pre></td></tr></table></figure>
+<p>$redis = new Redis();<br>$redis-&gt;connect(‘127.0.0.1’);<br>$strCacheKey = ‘adolph’;<br>$arrData = [<br>    ‘name’ =&gt; ‘adolph’,<br>    ‘age’  =&gt; ‘23’,<br>    ‘sex’  =&gt; ‘男’<br>];<br>$redis-&gt;set($strCacheKey,json_encode($arrData));<br>//expire 设置过期时间<br>$redis-&gt;expire($strCacheKey,60);<br>$json_data = $redis-&gt;get($strCacheKey);<br>$data = json_decode($json_data);<br>// 这里要删除,防止重复的Key<br>$redis-&gt;del($strCacheKey);<br>var_dump($data);<br>$arrWebSite = [<br>    ‘google’=&gt;[<br>        ‘google.com’,<br>        ‘google.com.hk’<br>    ]<br>];<br>$result = $redis-&gt;hSet($strCacheKey,’google’,json_encode($arrWebSite[‘google’]));<br>$json_data = $redis-&gt;hGet($strCacheKey,’google’);<br>var_dump(json_decode($json_data));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 计数器</span><br></pre></td></tr></table></figure></p>
+<p>$redis = new Redis();<br>$redis-&gt;connect(‘127.0.0.1’,6379);<br>$counter = ‘counts’;<br>$redis-&gt;set($counter,0);<br>//自增1<br>$redis-&gt;incr($counter);<br>$redis-&gt;incr($counter);<br>$redis-&gt;incr($counter);<br>$strNowCount = $redis-&gt;get($counter);<br>echo ‘——– 当前数量为:’ . $strNowCount . ‘ ——-‘;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 排序 有序集合</span><br></pre></td></tr></table></figure></p>
+<p>$redis = new Redis();<br>$redis-&gt;connect(‘127.0.0.1’,6379);<br>$top_str = ‘top10’;<br>$redis-&gt;zAdd($top_str,’50’,json_encode([‘name’=&gt;’tom’]));<br>$redis-&gt;zAdd($top_str,’60’,json_encode([‘name’=&gt;’adolph’]));<br>$redis-&gt;zAdd($top_str,’40’,json_encode([‘name’=&gt;’blank’]));<br>$dataOne = $redis-&gt;zRevRange($top_str,0,-1,true);<br>echo ‘从大到小：’;<br>print_r($dataOne);<br>$dataTwo = $redis-&gt;zRange($top_str,0,-1,true);<br>echo ‘从小到大:’;<br>print_r($dataTwo);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 队列 </span><br><span class="line">先进先出 后进后出 push 入 pop  出 l 和 r 是左右单词缩写</span><br></pre></td></tr></table></figure></p>
+<p>$redis = new Redis();<br>$redis-&gt;connect(‘127.0.0.1’,6379);<br>$strQueueName = ‘queue’;<br>// 进队列.<br>$redis-&gt;rPush($strQueueName,json_encode([‘uid’=&gt;1,’name’=&gt;’Job’]));<br>$redis-&gt;rPush($strQueueName,json_encode([‘uid’=&gt;2,’name’=&gt;’Tom’]));<br>$redis-&gt;rPush($strQueueName,json_encode([‘uid’=&gt;3,’name’=&gt;’John’]));<br>echo “—— 进队列成功 ——“;<br>$strCount = $redis-&gt;lRange($strQueueName,0,-1);<br>echo ‘当该队列数据为:’ . count($strCount);<br>$queue = $redis-&gt;lPop($strQueueName);<br>echo ‘获取一个队列’;<br>//lrange 获取指定的元素 0 表示开始为  -1 表示结束位置<br>$strCount = $redis-&gt;lRange($strQueueName,0,-1);<br>echo ‘当前队列为:’ . count($strCount);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 乐观锁</span><br><span class="line">解释：乐观锁(Optimistic Lock), 顾名思义，就是很乐观。</span><br><span class="line"> 每次去拿数据的时候都认为别人不会修改，所以不会上锁。</span><br><span class="line"> watch命令会监视给定的key，当exec时候如果监视的key从调用watch后发生过变化，则整个事务会失败。</span><br><span class="line">也可以调用watch多次监视多个key。这样就可以对指定的key加乐观锁了。</span><br><span class="line"> 注意watch的key是对整个连接有效的，事务也一样。</span><br><span class="line">如果连接断开，监视和事务都会被自动清除。</span><br><span class="line">当然了exec，discard，unwatch命令都会清除连接中的所有监视。</span><br></pre></td></tr></table></figure></p>
+<p>$redis = new Redis();<br>$redis-&gt;connect(‘127.0.0.1’,6379);<br>$strKey = ‘pessimistic’;<br>$redis-&gt;set($strKey,10);<br>$age = $redis-&gt;get($strKey);<br>echo ‘—— Current Age:’ . $age . “\n”;<br>$redis-&gt;watch($strKey);<br>// 开启事务<br>$redis-&gt;multi();<br>$redis-&gt;set($strKey,30);<br>$redis-&gt;set($strKey,20);<br>// 休息30秒让其他去操作<br>sleep(30);<br>$redis-&gt;exec();<br>$age = $redis-&gt;get($strKey);<br>echo “—– Current Age:{$age}\n”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">6 悲观锁</span><br><span class="line">解释：悲观锁(Pessimistic Lock), 顾名思义，就是很悲观。</span><br><span class="line">每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁。</span><br><span class="line">场景：如果项目中使用了缓存且对缓存设置了超时时间。</span><br><span class="line">当并发量比较大的时候，如果没有锁机制，那么缓存过期的瞬间，</span><br><span class="line">大量并发请求会穿透缓存直接查询数据库，造成雪崩效应。</span><br></pre></td></tr></table></figure></p>
+<p>class RedisExample{<br>    protected $redis = ‘’;<br>    public function __construct()<br>    {<br>        $this-&gt;redis = new Redis();<br>        $this-&gt;redis-&gt;connect(‘127.0.0.1’,6379);<br>    }<br>    /**</p>
+<pre><code> * 获取锁
+ * @param string $key   关键字
+ * @param int $expire   超时时间
+ * @return bool
+ */
+public function lock($key = &apos;&apos;,$expire = 5)
+{
+    // 设置值,如果有值就返回失败.
+    $is_lock = $this-&gt;redis-&gt;setnx($key,time() + $expire);
+    // 有值判断时间.
+    if(!$is_lock)
+    {
+        // 获取有效期.
+        $lock_time = $this-&gt;redis-&gt;get($key);
+        // 判断有效期,当前时间如果大于设置的日期  就过期了
+        if(time() &gt; $lock_time)
+        {
+            // 删除键 并且重新设值.
+            $this-&gt;unlock($key);
+            $is_lock = $this-&gt;redis-&gt;setnx($key,time() + $expire);
+        }
+    }
+    return $is_lock ? true : false;
+}
+public function unlock($key = &apos;&apos;)
+{
+    return $this-&gt;redis-&gt;del($key);
+}
+</code></pre><p>}<br>$redis = new RedisExample();<br>$key = ‘lock_key’;<br>$is_lock = $redis-&gt;lock($key,10);<br>if($is_lock)<br>{<br>    echo ‘成功获取锁’ . “\n”;<br>    echo ‘需要做的事情’ . “\n”;<br>    sleep(5);<br>    echo ‘操作成功’;<br>    $redis-&gt;unlock($key);<br>}<br>else<br>{<br>    echo ‘获取锁失败’;<br>}<br>```</p>
+<h4 id="还有许多高级引用-自己去看文档-还有数据类型的具体操作也可以直接看文档实现-列举的只有几个简单常用的"><a href="#还有许多高级引用-自己去看文档-还有数据类型的具体操作也可以直接看文档实现-列举的只有几个简单常用的" class="headerlink" title="还有许多高级引用,自己去看文档 ,还有数据类型的具体操作也可以直接看文档实现,列举的只有几个简单常用的"></a>还有许多高级引用,自己去看文档 ,还有数据类型的具体操作也可以直接看文档实现,列举的只有几个简单常用的</h4>
       
       
         <div class="page-reward">
@@ -318,13 +341,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/02/01/正则表达式/">正则表达式</a></p>
+        <p><span>本文标题:</span><a href="/2018/05/08/redis分享/">redis</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
-        <p><span>发布时间:</span>2018年02月01日 - 19时20分</p>
-        <p><span>最后更新:</span>2018年02月01日 - 19时20分</p>
+        <p><span>发布时间:</span>2018年05月08日 - 20时58分</p>
+        <p><span>最后更新:</span>2018年05月08日 - 20时58分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/02/01/正则表达式/" title="正则表达式">https://waitchenx.github.io/2018/02/01/正则表达式/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2018/02/01/正则表达式/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/08/redis分享/" title="redis">https://waitchenx.github.io/2018/05/08/redis分享/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2018/05/08/redis分享/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -337,9 +360,18 @@
 
 <nav id="article-nav">
   
+    <a href="/2018/05/08/git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          git
+        
+      </div>
+    </a>
   
-    <a href="/2018/01/14/面试题总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">面试题</div>
+  
+    <a href="/2018/05/07/template语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">template语法</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -350,7 +382,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.</span> <span class="toc-text">正则表达式</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#作用"><span class="toc-number">1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#redis数据类型"><span class="toc-number">2.</span> <span class="toc-text">redis数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#还有许多高级引用-自己去看文档-还有数据类型的具体操作也可以直接看文档实现-列举的只有几个简单常用的"><span class="toc-number">3.</span> <span class="toc-text">还有许多高级引用,自己去看文档 ,还有数据类型的具体操作也可以直接看文档实现,列举的只有几个简单常用的</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -398,7 +430,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2018/02/01/正则表达式/" data-title="正则表达式" data-url="https://waitchenx.github.io/2018/02/01/正则表达式/"></div>
+    <div class="ds-thread" data-thread-key="2018/05/08/redis分享/" data-title="redis" data-url="https://waitchenx.github.io/2018/05/08/redis分享/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -421,16 +453,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/05/08/git/" title="上一篇: git">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/01/14/面试题总结/" title="下一篇: 面试题">
+            <a href="/2018/05/07/template语法/" title="下一篇: template语法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/01/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/面试题总结/">面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/tp5.0模型/">模型相关使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/tp5.0数据库访问与ORM/">数据库访问与ORM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/多进程/">多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/基础篇/">yii2基础篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/AOP与全局异常处理/">AOP与全局异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/工具篇/">yii2工具篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/扩展篇/">yii2扩展篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/高效篇/">yii2高效篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/redis分享/">redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/07/template语法/">template语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/01/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/14/面试题总结/">面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/tp5.0模型/">模型相关使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/tp5.0数据库访问与ORM/">数据库访问与ORM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/基础篇/">yii2基础篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/AOP与全局异常处理/">AOP与全局异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/多进程/">多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/工具篇/">yii2工具篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/扩展篇/">yii2扩展篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/高效篇/">yii2高效篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/rest-and-restful-API/">rest and restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/tp5-0自定义验证/">tp5.0自定义验证</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

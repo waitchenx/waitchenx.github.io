@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>AOP与全局异常处理 | Hexo</title>
+  <title>template语法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AOP与全局异常处理">
-<meta name="keywords" content="tp5.0">
+  <meta name="description" content="模板">
+<meta name="keywords" content="模板">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AOP与全局异常处理">
-<meta property="og:url" content="https://waitchenx.github.io/2017/08/11/AOP与全局异常处理/index.html">
+<meta property="og:title" content="template语法">
+<meta property="og:url" content="https://waitchenx.github.io/2018/05/07/template语法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="AOP与全局异常处理">
+<meta property="og:description" content="模板">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-12T07:31:10.000Z">
+<meta property="og:updated_time" content="2018-05-08T12:46:51.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AOP与全局异常处理">
-<meta name="twitter:description" content="AOP与全局异常处理">
+<meta name="twitter:title" content="template语法">
+<meta name="twitter:description" content="模板">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -206,11 +206,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-AOP与全局异常处理" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-template语法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/11/AOP与全局异常处理/" class="article-date">
-      <time datetime="2017-08-11T03:50:14.000Z" itemprop="datePublished">2017-08-11</time>
+      <a href="/2018/05/07/template语法/" class="article-date">
+      <time datetime="2018-05-07T12:25:40.000Z" itemprop="datePublished">2018-05-07</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      AOP与全局异常处理
+      template语法
     </h1>
   
 
@@ -232,13 +232,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tp5-0-小程序/">tp5.0+小程序</a>
+    <a class="article-category-link" href="/categories/模板/">模板</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tp5-0/">tp5.0</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模板/">模板</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -248,86 +248,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ol>
-<li><p>什么是异常</p>
-<p>​    异常就是程序执行产生的错误</p>
-</li>
-<li><p>异常分类</p>
-<ol>
-<li>用户异常  是由于用户操作产生的异常,不需要记录日志</li>
-<li>服务器自身异常 由于程序执行产生的异常 需要记录日志</li>
-</ol>
-</li>
-<li><p>正确处理异常</p>
-<ol>
-<li>异常都是逐级往上抛</li>
-</ol>
-</li>
-<li><p>固有处理方式   </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  .....</span><br><span class="line">&#125;<span class="keyword">catch</span>(<span class="keyword">Exception</span> $e)&#123;</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自定义全局异常处理</p>
-<ol>
-<li><p>自定义处理方式就是继承原来的异常处理机制,然后重写它</p>
-<ol>
-<li><p>创建application目录下创建lib目录用来存放自定义类库</p>
-</li>
-<li><p>创建 BaseException 并继承Exception</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//http 状态码</span></span><br><span class="line">    <span class="keyword">public</span> $code = <span class="number">400</span>;</span><br><span class="line">    <span class="comment">//错误信息</span></span><br><span class="line">    <span class="keyword">public</span> $msg = <span class="string">'参数错误'</span>;</span><br><span class="line">    <span class="comment">//自定义错误信息码</span></span><br><span class="line">    <span class="keyword">public</span> $errorcode = <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建对应的错误异常控制器  BannerMissException并继承BaseException</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BannerMissException</span> <span class="keyword">extends</span> <span class="title">BaseException</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $code = <span class="string">'400'</span>;</span><br><span class="line">    <span class="keyword">public</span> $msg = <span class="string">'banner获取错误'</span>;</span><br><span class="line">    <span class="keyword">public</span> $errorcode = <span class="number">10000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建异常处理ExceptionHandle类 并继承Handle</p>
-<ol>
-<li>之前讲到异常分为两种 一种是由于用户操作导致的不需要记录日志的,直接返回给客户端显示,还有一种是由于服务器内部发生错误,这个责需要记录日志.所以在异常抛出的时候应要做处理.缺少记录日志操作,后续补上.</li>
-<li>使用ExceptionHandle需要修改配置文件config.php 中exception_handle为对应的ExceptionHandle地址</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class ExceptionHandle extends Handle</span><br><span class="line">&#123;</span><br><span class="line">    private $code;</span><br><span class="line">    private $msg;</span><br><span class="line">    private $errorcode;</span><br><span class="line">    public function render(Exception $e)</span><br><span class="line">    &#123;</span><br><span class="line">        if($e instanceof BaseException)&#123;</span><br><span class="line">        //判断方式是判断异常是否有继承BaseException 继承了则表示有用户操作产生的异常</span><br><span class="line">            //如果是用户异常  </span><br><span class="line">            $this-&gt;code = $e-&gt;code;</span><br><span class="line">            $this-&gt;msg = $e-&gt;msg;</span><br><span class="line">            $this-&gt;errorcode = $e-&gt;errorcode;</span><br><span class="line"> </span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            $this-&gt;code = 400;</span><br><span class="line">            $this-&gt;msg = &apos;就是不告诉你&apos;;</span><br><span class="line">            $this-&gt;errorcode = 999;</span><br><span class="line"> </span><br><span class="line">        &#125;</span><br><span class="line">        //根据需要返回URL</span><br><span class="line">        $request = Request::instance();</span><br><span class="line">        $url = $request-&gt;url();</span><br><span class="line">        $result = [</span><br><span class="line">            &apos;msg&apos;=&gt; $this-&gt;msg,</span><br><span class="line">            &apos;error_code&apos;=&gt;$this-&gt;errorcode,</span><br><span class="line">            &apos;url&apos; =&gt;$url,</span><br><span class="line">        ];</span><br><span class="line">        return json($result,$this-&gt;code);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>3. 如何在控制器中抛出异常
-</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$banner = BannerModel::getBanner();</span><br><span class="line">       <span class="keyword">if</span>(!$banner)&#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> BannerMissException();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tp5 日志处理</p>
-<ol>
-<li><p>tp5 会默认存储日志,如果想要修改不适用默认的存储方式可以修改配置文件中log 的type为test.</p>
-</li>
-<li><p>系统日志记录的比较多,比较繁琐,我们需要自定义日志记录机制,首先需要修改配置文件中的type.然后自定义.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 记录日志</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> exception $e</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">recordErrorLog</span><span class="params">(Exception $e)</span></span>&#123;</span><br><span class="line">       Log::init([</span><br><span class="line">           <span class="string">'type'</span>  =&gt; <span class="string">'File'</span>,</span><br><span class="line">           <span class="comment">// 日志保存目录</span></span><br><span class="line">           <span class="string">'path'</span>  =&gt; LOG_PATH,</span><br><span class="line">           <span class="comment">// 日志记录级别</span></span><br><span class="line">           <span class="string">'level'</span> =&gt; [<span class="string">'error'</span>],</span><br><span class="line">       ]);</span><br><span class="line">       Log::record($e-&gt;getMessage(),<span class="string">'error'</span>);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-</li>
-<li><p>异常处理一些经验问题</p>
-<ol>
-<li><p>在发生系统错误的是如果是生产模式,我们可以不需要记录错误,直接将错误返回,早发现早解决.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Exception.php  handle 方法</span></span><br><span class="line"><span class="keyword">if</span>(config(<span class="string">'app_debug'</span>))&#123;</span><br><span class="line">               <span class="comment">//需要返回错误页面</span></span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">parent</span>::render($e);</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               <span class="keyword">$this</span>-&gt;code = <span class="number">400</span>;</span><br><span class="line">               <span class="keyword">$this</span>-&gt;msg = <span class="string">'就是不告诉你'</span>;</span><br><span class="line">               <span class="keyword">$this</span>-&gt;errorcode = <span class="number">999</span>;</span><br><span class="line">               <span class="keyword">$this</span>-&gt;recordErrorLog($e);</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在调用参数验证器验证出错的时候赋值错误信息问题</p>
-<ol>
-<li><p>使用对象赋值</p>
-</li>
-<li><p>实例化验证器是时候使用构造函数内部赋值  在BaseException中新增构造函数  </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//验证处理异常抛出错误 使用PermsMissException 异常类</span></span><br><span class="line">            $e = <span class="keyword">new</span> PermsMissException([</span><br><span class="line">                <span class="string">'msg'</span>=&gt;<span class="keyword">$this</span>-&gt;error</span><br><span class="line">            ]);</span><br><span class="line">            <span class="keyword">throw</span> $e;</span><br><span class="line"></span><br><span class="line"><span class="comment">//            $e = new PermsMissException();</span></span><br><span class="line"><span class="comment">//            //这来采用赋值的方式来重新定义错误 面向对象里面可以使用构造函数定义属性值</span></span><br><span class="line"><span class="comment">//            $e-&gt;msg = $this-&gt;error;</span></span><br><span class="line"><span class="comment">//            throw $e;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//BaseException</span></span><br><span class="line"> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($prames = [])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!is_array($prames))&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(array_key_exists(<span class="string">'code'</span>,$prames))&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;code = $prames[<span class="string">'code'</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(array_key_exists(<span class="string">'msg'</span>,$prames))&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;msg = $prames[<span class="string">'msg'</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(array_key_exists(<span class="string">'errorcode'</span>,$prames))&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;errorcode = $prames[<span class="string">'errorcode'</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-</li>
-<li><p>在验证的是我们需要开启批量验证</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$result = <span class="keyword">$this</span>-&gt;batch()-&gt;check($perm); <span class="comment">//这里需要开启批量验证</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>总结</p>
-<ol>
-<li>一步一步按需求完善代码,注重分析过程</li>
-<li>了解AOP思想更,并运用到程序应用中,在之前重构的代码中,自定义全局异常处理就是一个很好的例子. 通俗理解就是一类事情一个入口统一处理.</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
+        <h3 id="模板定义"><a href="#模板定义" class="headerlink" title="模板定义"></a>模板定义</h3><p>模板就是视图</p>
+<h3 id="为什么要用模板"><a href="#为什么要用模板" class="headerlink" title="为什么要用模板"></a>为什么要用模板</h3><p>在Web开发中分离应用程序的业务逻辑和表现逻辑，是我们使用模板引擎的主要目的。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>正则替换，把模版中的特定的字符串转换成php代码</p>
+<h3 id="常见的模板引擎"><a href="#常见的模板引擎" class="headerlink" title="常见的模板引擎"></a>常见的模板引擎</h3><p>smarty  比较早的PHP模板引擎,目前用的不是很多了<br>thinkPHP3.2 是基于smarty 开发的PHP模板引擎<br>yii2 是PHP原生语法 的模板,只是将PHP语法嵌套到html文件中<br>thinkPHP5.0 也是基于smarty实现的PHP模板引擎,与3.2 版本不同的是,5.0人家有名字,think<br>laravel 使用的是blade 模板</p>
+<h3 id="yii2模板引擎"><a href="#yii2模板引擎" class="headerlink" title="yii2模板引擎"></a>yii2模板引擎</h3><p>1.常用的<br>输出语法<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span>= $name=<span class="meta">?&gt;</span></span><br><span class="line"> <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $name<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>分支<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">if</span>($num &gt; <span class="number">50</span>):<span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//条件成立</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">else</span>:<span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//条件不成立</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">endif</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>循环<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">foreach</span> ($rows <span class="keyword">as</span> $key=&gt;$row):<span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//循环体</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">endforeach</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>文件引入<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span>=<span class="keyword">$this</span>-&gt;render(<span class="string">'@backend/views/common/nav.php'</span>)<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="tp3-2"><a href="#tp3-2" class="headerlink" title="tp3.2"></a>tp3.2</h3><p>1 . 输出<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;$name&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.分支<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">if</span> condition=<span class="string">" $num &gt;50"</span>&gt;</span><br><span class="line">&lt;<span class="keyword">else</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3 . 循环<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;volist name=<span class="string">"list"</span> id=<span class="string">"vo"</span>&gt;</span><br><span class="line">&#123;$vo.id&#125;:&#123;$vo.name&#125;&lt;br/&gt;</span><br><span class="line">&lt;/volist&gt;</span><br><span class="line">&lt;<span class="keyword">foreach</span> name=<span class="string">"list"</span> item=<span class="string">"vo"</span> key=<span class="string">"k"</span> &gt;</span><br><span class="line">   &#123;$k&#125;|&#123;$vo&#125;</span><br><span class="line">&lt;/<span class="keyword">foreach</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>4 . 引入<br>include<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">include</span> file=<span class="string">"Public:header"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
 
       
       
@@ -382,13 +314,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/11/AOP与全局异常处理/">AOP与全局异常处理</a></p>
+        <p><span>本文标题:</span><a href="/2018/05/07/template语法/">template语法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 chenx 的个人博客">chenx</a></p>
-        <p><span>发布时间:</span>2017年08月11日 - 11时50分</p>
-        <p><span>最后更新:</span>2017年08月12日 - 15时31分</p>
+        <p><span>发布时间:</span>2018年05月07日 - 20时25分</p>
+        <p><span>最后更新:</span>2018年05月08日 - 20时46分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/11/AOP与全局异常处理/" title="AOP与全局异常处理">https://waitchenx.github.io/2017/08/11/AOP与全局异常处理/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2017/08/11/AOP与全局异常处理/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/07/template语法/" title="template语法">https://waitchenx.github.io/2018/05/07/template语法/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://waitchenx.github.io/2018/05/07/template语法/　　作者: chenx" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -401,18 +333,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/08/11/基础篇/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/05/08/redis分享/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          yii2基础篇
+          redis
         
       </div>
     </a>
   
   
-    <a href="/2017/08/11/多进程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">多进程</div>
+    <a href="/2018/04/01/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -423,7 +355,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#模板定义"><span class="toc-number">1.</span> <span class="toc-text">模板定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要用模板"><span class="toc-number">2.</span> <span class="toc-text">为什么要用模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见的模板引擎"><span class="toc-number">4.</span> <span class="toc-text">常见的模板引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yii2模板引擎"><span class="toc-number">5.</span> <span class="toc-text">yii2模板引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tp3-2"><span class="toc-number">6.</span> <span class="toc-text">tp3.2</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -471,7 +403,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/08/11/AOP与全局异常处理/" data-title="AOP与全局异常处理" data-url="https://waitchenx.github.io/2017/08/11/AOP与全局异常处理/"></div>
+    <div class="ds-thread" data-thread-key="2018/05/07/template语法/" data-title="template语法" data-url="https://waitchenx.github.io/2018/05/07/template语法/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -494,13 +426,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/11/基础篇/" title="上一篇: yii2基础篇">
+            <a href="/2018/05/08/redis分享/" title="上一篇: redis">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/11/多进程/" title="下一篇: 多进程">
+            <a href="/2018/04/01/正则表达式/" title="下一篇: 正则表达式">
                 <i class="fa fa-angle-right"></i>
             </a>
         
